@@ -1,29 +1,33 @@
 /* ---------------------------------------------------------------
-   Personal site styles — plain CSS, no build step, GitHub Pages ready
+   Personal site — Spotify-inspired dark theme (see DESIGN.md)
+   Plain CSS, no build step, GitHub Pages ready
    --------------------------------------------------------------- */
 
 :root {
-  --bg: #ffffff;
-  --surface: #f5f6f8;
-  --text: #1c1e21;
-  --muted: #5a6066;
-  --accent: #2563eb;
-  --accent-contrast: #ffffff;
-  --border: #e2e5e9;
-  --max-width: 760px;
-  --radius: 10px;
-}
+  /* Surfaces — depth through near-black shade variation */
+  --bg: #121212;          /* Level 0 — page background */
+  --surface: #181818;     /* Level 1 — cards, header */
+  --surface-2: #1f1f1f;   /* interactive surfaces, pills */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #16181c;
-    --surface: #1f2228;
-    --text: #e8eaed;
-    --muted: #a2a8b0;
-    --accent: #5b8bff;
-    --accent-contrast: #0c0d10;
-    --border: #2c2f36;
-  }
+  /* Text */
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+
+  /* Brand accent — functional only (CTAs, active states) */
+  --accent: #1ed760;
+  --accent-press: #1db954;
+  --on-accent: #000000;
+
+  /* Borders & shadows */
+  --border: #4d4d4d;
+  --shadow-card: rgba(0, 0, 0, 0.3) 0px 8px 8px;
+  --shadow-dialog: rgba(0, 0, 0, 0.5) 0px 8px 24px;
+
+  --max-width: 760px;
+
+  /* CircularSp fallback stack from DESIGN.md (proprietary fonts omitted) */
+  --font: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans",
+          "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -32,8 +36,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: var(--font);
+  font-size: 1rem;          /* 16px body */
+  line-height: 1.5;         /* compact, not relaxed */
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -45,31 +50,32 @@ body {
   left: -999px;
   top: 0;
   background: var(--accent);
-  color: var(--accent-contrast);
+  color: var(--on-accent);
   padding: 0.5rem 1rem;
-  border-radius: 0 0 var(--radius) 0;
+  font-weight: 700;
   z-index: 100;
 }
 .skip-link:focus { left: 0; }
 
 a {
-  color: var(--accent);
+  color: var(--text);
   text-decoration: none;
 }
-a:hover { text-decoration: underline; }
+a:hover { color: var(--accent); }
 
 /* Visible focus styles for keyboard users */
 a:focus-visible,
 .button:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
 /* ---------- Header / nav ---------- */
 .site-header {
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -86,6 +92,8 @@ a:focus-visible,
 }
 .nav__brand {
   font-weight: 700;
+  font-size: 0.875rem;       /* 14px nav */
+  letter-spacing: 0.5px;
   color: var(--text);
 }
 .nav__list {
@@ -95,6 +103,12 @@ a:focus-visible,
   margin: 0;
   padding: 0;
 }
+.nav__list a {
+  font-size: 0.875rem;       /* 14px nav link */
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.nav__list a:hover { color: var(--text); }
 
 /* ---------- Layout ---------- */
 main {
@@ -105,12 +119,21 @@ main {
 
 .section {
   padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #282828;
 }
 .section:last-of-type { border-bottom: none; }
 
-h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 0.25rem; }
-h2 { font-size: 1.4rem; margin: 0 0 0.75rem; }
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+h2 {
+  font-size: 1.5rem;         /* 24px section title */
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+p { color: var(--text-muted); }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -123,44 +146,68 @@ h2 { font-size: 1.4rem; margin: 0 0 0.75rem; }
 .hero__photo {
   width: 180px;
   height: 180px;
-  border-radius: 50%;
+  border-radius: 50%;        /* circular avatar */
   object-fit: cover;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-dialog);
   flex-shrink: 0;
 }
+.hero__text h1 { color: var(--text); }
 .hero__tagline {
-  color: var(--muted);
+  color: var(--text-muted);
   margin: 0 0 0.75rem;
   font-size: 1.05rem;
 }
 .hero__links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
 }
+/* Profile links as dark pills */
+.hero__links a {
+  display: inline-block;
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.hero__links a:hover {
+  color: var(--text);
+  background: #2a2a2a;
+}
 
-/* ---------- Button ---------- */
+/* ---------- Button (primary CTA — functional green) ---------- */
 .button {
   display: inline-block;
   background: var(--accent);
-  color: var(--accent-contrast);
-  padding: 0.6rem 1.2rem;
-  border-radius: var(--radius);
-  font-weight: 600;
+  color: var(--on-accent);
+  padding: 12px 32px;
+  border-radius: 9999px;     /* full pill */
+  font-size: 0.875rem;       /* 14px */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  transition: transform 0.1s ease, background 0.1s ease;
 }
-.button:hover { text-decoration: none; opacity: 0.92; }
+.button:hover {
+  color: var(--on-accent);
+  background: var(--accent);
+  transform: scale(1.04);
+}
+.button:active { background: var(--accent-press); }
 
 /* ---------- Footer ---------- */
 .site-footer {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1rem 3rem;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;        /* 12px fine print */
 }
 
 /* ---------- Small screens ---------- */
@@ -173,4 +220,6 @@ h2 { font-size: 1.4rem; margin: 0 0 0.75rem; }
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .button { transition: none; }
+  .button:hover { transform: none; }
 }
