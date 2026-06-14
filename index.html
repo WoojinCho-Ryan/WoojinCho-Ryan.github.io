@@ -1,7 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Woojin (Ryan) Cho</title>
+  <meta name="description" content="Personal website of Woojin (Ryan) Cho." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-  <h1>Welcome to my Personal Page</h1>
-  <p>Hosted on GitHub Pages!</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#main">Woojin&nbsp;Cho</a>
+      <ul class="nav__list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero / intro -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img
+        class="hero__photo"
+        src="assets/profile.jpg"
+        alt="Portrait of Woojin (Ryan) Cho"
+        width="180"
+        height="180"
+        onerror="this.onerror=null; this.src='assets/profile.png';"
+      />
+      <div class="hero__text">
+        <h1 id="hero-title">Woojin (Ryan) Cho</h1>
+        <p class="hero__tagline">Student &amp; Researcher at Seoul National University</p>
+        <ul class="hero__links" aria-label="Profiles">
+          <li><a href="mailto:f5foehn@snu.ac.kr">Email</a></li>
+          <li><a href="https://github.com/WoojinCho-Ryan" rel="me noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <p>
+        Hello! I'm Woojin Cho, also known as Ryan. I'm interested in
+        research, software, and building things that are useful and
+        well made. This is my personal corner of the web where I share
+        a bit about myself and my work.
+      </p>
+      <p>
+        Feel free to update this text with your own background,
+        interests, and current projects.
+      </p>
+    </section>
+
+    <!-- CV / Resume -->
+    <section id="cv" class="section" aria-labelledby="cv-title">
+      <h2 id="cv-title">CV / Resume</h2>
+      <p>
+        You can view or download my full curriculum vitae below.
+      </p>
+      <p>
+        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener">
+          Download CV (PDF)
+        </a>
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>
+        The best way to reach me is by email:
+        <a href="mailto:f5foehn@snu.ac.kr">f5foehn@snu.ac.kr</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Woojin (Ryan) Cho. Built with plain HTML &amp; CSS.</p>
+  </footer>
+
+  <script>
+    // Keep the footer year current without any backend.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
