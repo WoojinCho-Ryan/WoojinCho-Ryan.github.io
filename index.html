@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Woojin (Ryan) Cho</title>
-  <meta name="description" content="Personal website of Woojin (Ryan) Cho." />
+  <meta name="description" content="Personal website of Woojin (Ryan) Cho — Computer Science & Engineering student at Seoul National University." />
   <meta name="theme-color" content="#121212" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,15 +16,17 @@
       <a class="nav__brand" href="#main">Woojin&nbsp;Cho</a>
       <ul class="nav__list">
         <li><a href="#about">About</a></li>
-        <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#courses">Courses</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
-    <!-- Hero / intro -->
-    <section class="hero" aria-labelledby="hero-title">
+    <!-- 1 & 2. Name, major, short bio + profile photo -->
+    <section id="about" class="hero" aria-labelledby="hero-title">
       <img
         class="hero__photo"
         src="assets/profile.jpg"
@@ -35,49 +37,211 @@
       />
       <div class="hero__text">
         <h1 id="hero-title">Woojin (Ryan) Cho</h1>
-        <p class="hero__tagline">Student &amp; Researcher at Seoul National University</p>
+        <p class="hero__tagline">CSE &amp; Mathematical Sciences · Seoul National University</p>
+        <p class="hero__bio">
+          I'm an undergraduate at Seoul National University studying
+          Computer Science &amp; Engineering with a minor in Mathematical
+          Sciences. My research interests are mechanistic
+          interpretability, autoformalization, and agentic benchmarks —
+          where rigorous theory meets practical engineering.
+        </p>
         <ul class="hero__links" aria-label="Profiles">
           <li><a href="mailto:f5foehn@snu.ac.kr">Email</a></li>
           <li><a href="https://github.com/WoojinCho-Ryan" rel="me noopener">GitHub</a></li>
+          <li><a href="assets/cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
         </ul>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <p>
-        Hello! I'm Woojin Cho, also known as Ryan. I'm interested in
-        research, software, and building things that are useful and
-        well made. This is my personal corner of the web where I share
-        a bit about myself and my work.
-      </p>
-      <p>
-        Feel free to update this text with your own background,
-        interests, and current projects.
-      </p>
-    </section>
-
-    <!-- CV / Resume -->
-    <section id="cv" class="section" aria-labelledby="cv-title">
-      <h2 id="cv-title">CV / Resume</h2>
-      <p>
-        You can view or download my full curriculum vitae below.
-      </p>
-      <p>
-        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener">
-          Download CV (PDF)
-        </a>
-      </p>
-    </section>
-
-    <!-- Contact -->
+    <!-- 3. Contact -->
     <section id="contact" class="section" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
-      <p>
-        The best way to reach me is by email:
-        <a href="mailto:f5foehn@snu.ac.kr">f5foehn@snu.ac.kr</a>
-      </p>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-list__label">Email</span>
+          <a href="mailto:f5foehn@snu.ac.kr">f5foehn@snu.ac.kr</a>
+        </li>
+        <li>
+          <span class="contact-list__label">Phone</span>
+          <a href="tel:+821082258229">+82 10-8225-8229</a>
+        </li>
+        <li>
+          <span class="contact-list__label">GitHub</span>
+          <a href="https://github.com/WoojinCho-Ryan" rel="me noopener">github.com/WoojinCho-Ryan</a>
+        </li>
+        <li>
+          <span class="contact-list__label">Location</span>
+          <span>Seoul, South Korea</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. CV: Education, Skills, Experience -->
+    <section id="cv" class="section" aria-labelledby="cv-title">
+      <div class="section__head">
+        <h2 id="cv-title">CV</h2>
+        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <h3 class="subhead">Education</h3>
+      <ul class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">Seoul National University</span>
+            <span class="timeline__meta">Mar 2024 – Present</span>
+          </div>
+          <p class="timeline__desc">
+            B.S. in Computer Science &amp; Engineering (Minor in
+            Mathematical Sciences). GPA 4.06 / 4.30, Major GPA 4.20 / 4.30.
+            Expected graduation Aug 2029.
+          </p>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">Hansung Science High School</span>
+            <span class="timeline__meta">Mar 2021 – Feb 2024</span>
+          </div>
+          <p class="timeline__desc">
+            Specialized in Mathematics and Science. Seoul, South Korea.
+          </p>
+        </li>
+      </ul>
+
+      <h3 class="subhead">Publications</h3>
+      <ul class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">K-WebArena: A Challenging Web Navigation Agent Benchmark on Korean Websites</span>
+            <span class="timeline__meta">Under Preparation</span>
+          </div>
+          <p class="timeline__desc">
+            Woojin Cho, Dongkeun Yoon, Guijin Son, Nahyun Lee, Seungone Kim.
+          </p>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">K-BrowseComp: A Web Browsing Agent Benchmark Grounded in Korean Contexts</span>
+            <span class="timeline__meta">Preprint, May 2026</span>
+          </div>
+          <p class="timeline__desc">
+            Nahyun Lee, Dongkeun Yoon, Guijin Son, …, Woojin Cho, Seungone Kim.
+            <a href="https://arxiv.org/abs/2606.02404" rel="noopener">arXiv:2606.02404</a>
+          </p>
+        </li>
+      </ul>
+
+      <h3 class="subhead">Skills</h3>
+      <ul class="tags" aria-label="Skills">
+        <li class="tag">Python</li>
+        <li class="tag">C++</li>
+        <li class="tag">Java</li>
+        <li class="tag">Lean 4</li>
+        <li class="tag">PyTorch</li>
+        <li class="tag">Hugging Face Transformers</li>
+        <li class="tag">NumPy</li>
+        <li class="tag">Pandas</li>
+        <li class="tag">Git / GitHub</li>
+        <li class="tag">Linux</li>
+        <li class="tag">LaTeX</li>
+      </ul>
+
+      <h3 class="subhead">Research Experience</h3>
+      <ul class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">Research Intern (Mentorship) — Korean Web Navigation Benchmark</span>
+            <span class="timeline__meta">Feb 2026 – Present</span>
+          </div>
+          <p class="timeline__desc">
+            Mentor: Seungone Kim. Built reproducible Docker-based
+            environments for major Korean services (Naver, KTX) to evaluate
+            web navigation agents, curated Korea-specific tasks addressing
+            gaps in English-centric benchmarks, and adapted the WebArena
+            framework toward future Computer Use Agents.
+          </p>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__top">
+            <span class="timeline__title">Undergraduate Research Intern — Language &amp; Data Intelligence Lab, SNU</span>
+            <span class="timeline__meta">Sep 2025 – Jan 2026</span>
+          </div>
+          <p class="timeline__desc">
+            Advisor: Prof. Seung-won Hwang. Designed a structured JSON
+            schema bridging natural-language math and formal logic (Lean 4),
+            built a preprocessing pipeline for structured evaluation
+            datasets, and showed that enforcing output structure mitigates
+            logical hallucinations in LLM reasoning.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 5. Activities / Projects (2+) -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects &amp; Activities</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card__head">
+            <h3 class="card__title">Adaptive Robustness of CountSketch</h3>
+            <span class="card__meta">Spring 2026</span>
+          </div>
+          <p class="card__desc">
+            Proved a complete non-adaptive analysis of CountSketch
+            (unbiasedness, variance bound, median amplification), derived a
+            conditional-expectation lemma linking adaptive queries to biased
+            noise and the Hardt–Woodruff impossibility theorem, and proposed
+            a formal dictionary to toy models of superposition as an
+            interpretability hazard.
+          </p>
+          <ul class="tags tags--small">
+            <li class="tag">Theory</li>
+            <li class="tag">Randomized Algorithms</li>
+            <li class="tag">Mechanistic Interpretability</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card__head">
+            <h3 class="card__title">Real-time Visual Perception &amp; Perspective Correction</h3>
+            <span class="card__meta">Spring 2024</span>
+          </div>
+          <p class="card__desc">
+            Implemented a real-time vision algorithm to rectify distorted
+            monitor screens into canonical rectangular views using homography
+            matrix operations, mapping pixel coordinates from a tilted camera
+            feed to a target plane and optimizing the pipeline for video
+            streams robust to jitter and motion blur.
+          </p>
+          <ul class="tags tags--small">
+            <li class="tag">Python</li>
+            <li class="tag">NumPy</li>
+            <li class="tag">Linear Algebra</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. Courses Planning to Take -->
+    <section id="courses" class="section" aria-labelledby="courses-title">
+      <h2 id="courses-title">Courses Planning to Take (Fall 2026)</h2>
+      <ul class="courses">
+        <li class="course">
+          <span class="course__name">Foundations of Deep Learning</span>
+          <span class="course__note">Building mathematical foundations for neural network research</span>
+        </li>
+        <li class="course">
+          <span class="course__name">Formal Software Verification</span>
+          <span class="course__note">Exploring formal methods and proof-based software correctness</span>
+        </li>
+        <li class="course">
+          <span class="course__name">Computer Architecture</span>
+          <span class="course__note">Understanding systems-level design and hardware fundamentals</span>
+        </li>
+        <li class="course">
+          <span class="course__name">Introduction to Software Practices</span>
+          <span class="course__note">Collaborative software engineering and development workflows</span>
+        </li>
+      </ul>
     </section>
   </main>
 
